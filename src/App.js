@@ -45,12 +45,8 @@ function App() {
   return (
     <TodoProvider>
       <GlobalStyle />
-
       <TodoTemplate>
       <Background>
-
-
-
         <TodoHead />
         <span>dark mode</span>
         <button onClick={darkOnOff}>on/off darkMode</button>
