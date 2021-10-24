@@ -29,7 +29,15 @@ const TodoHeadBlock = styled.div`
   }
   
   .d-button {
-    margin-left: 50px
+    margin-left: 260px;
+    width : 120px;
+    border: none;
+    box-shadow: 1px 1px 3px 1px #dadce0;
+  }
+
+  .d-button:hover {
+    background-color: #7785B4;
+    color: white;
   }
 
   .bg-d {
@@ -77,7 +85,7 @@ function TodoHead() {
       <h1>{dateString}</h1>
       <div class="row">
         <div className="day">{dayName}</div>
-        <button class="d-button" onClick={darkOnOff}>darkMode on/off</button>
+        <button class="d-button" onClick={darkOnOff}>DarkMode on/off</button>
       </div>
       <div className="tasks-left"> 할 일   {undoneTasks.length} / {todos.length} </div>
     </TodoHeadBlock>

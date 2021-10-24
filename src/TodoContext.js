@@ -20,6 +20,11 @@ const initialTodos = [
     id: 4,
     text: '서류 제출',
     done: false
+  },
+  {
+    id: 5,
+    text: '중간고사 끝',
+    done: false
   }
 ];
 
@@ -44,7 +49,7 @@ const TodoNextIdContext = createContext();
 
 export function TodoProvider({ children }) {
   const [state, dispatch] = useReducer(todoReducer, initialTodos);
-  const nextId = useRef(5);
+  const nextId = useRef(6);
 
   return (
     <TodoStateContext.Provider value={state}>

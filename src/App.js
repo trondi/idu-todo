@@ -20,10 +20,6 @@ const GlobalStyle = createGlobalStyle`
     /*--primary-color: blue;*/
     --background-color: white;
   }
-
-  button {
-    width : 150px;
-  }
 `;
 
 function App() {
