@@ -3,22 +3,22 @@ import React, { useReducer, createContext, useContext, useRef } from 'react';
 const initialTodos = [
   {
     id: 1,
-    text: '프로젝트 생성하기',
+    text: 'todo app 만들기',
     done: true
   },
   {
     id: 2,
-    text: '컴포넌트 스타일링하기',
+    text: '월요일 Quiz문제 만들기',
     done: true
   },
   {
     id: 3,
-    text: 'Context 만들기',
+    text: '영상 촬영',
     done: false
   },
   {
     id: 4,
-    text: '기능 구현하기',
+    text: '서류 제출',
     done: false
   }
 ];
