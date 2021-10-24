@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import { useTodoState } from '../TodoContext';
 
@@ -24,12 +24,45 @@ const TodoHeadBlock = styled.div`
     margin-top: 40px;
     font-weight: bold;
   }
+  .row {
+    display: flex;
+  }
+  
+  .d-button {
+    margin-left: 50px
+  }
+
+  .bg-d {
+    color: #B1B0B0;
+  }
 `;
 
+
 function TodoHead() {
+  useEffect(() => {
+    const bgMode = window.localStorage.getItem("bgMode");
+    if (bgMode === "dark") {
+      document.getElementsByTagName("html")[0].classList.add("ui-dark", "bg-d");
+    }
+  }, []);
+
+  const darkOnOff = () => {
+    if (
+      document.getElementsByTagName("html")[0].classList.contains("ui-dark")
+    ) {
+      document.getElementsByTagName("html")[0].classList.remove("ui-dark");
+      document.getElementsByTagName("h1")[0].classList.add("bg-d");
+      window.localStorage.setItem("bgMode", "light");
+    } else {
+      document.getElementsByTagName("html")[0].classList.add("ui-dark");
+      
+      document.getElementsByTagName("h1")[0].classList.remove("bg-d");
+      window.localStorage.setItem("bgMode", "dark");
+    }
+  };
+
   const todos = useTodoState();
   const undoneTasks = todos.filter(todo => !todo.done);
-  
 
   const today = new Date();
   const dateString = today.toLocaleDateString('ko-KR', {
@@ -42,7 +75,10 @@ function TodoHead() {
   return (
     <TodoHeadBlock>
       <h1>{dateString}</h1>
-      <div className="day">{dayName}</div>
+      <div class="row">
+        <div className="day">{dayName}</div>
+        <button class="d-button" onClick={darkOnOff}>darkMode on/off</button>
+      </div>
       <div className="tasks-left"> 할 일   {undoneTasks.length} / {todos.length} </div>
     </TodoHeadBlock>
   );
