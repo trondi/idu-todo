@@ -40,6 +40,7 @@ function App() {
 const Background = styled.div`
   background-color: var(--background-color);
   color: var(--primary-color);
+  border-radius: 16px;
 
 `;
 
